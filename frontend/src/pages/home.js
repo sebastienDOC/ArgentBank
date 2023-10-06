@@ -1,10 +1,13 @@
 import chat from '../assets/icon-chat.png';
 import money from '../assets/icon-money.png';
 import secu from '../assets/icon-security.png';
+import Header from '../components/Header';
 
 export default function Home() {
-    return (
 
+    return (
+        <div className='body-2'>
+            <Header />
             <main>
                 <div className="hero">
                     <section className="hero-content">
@@ -54,6 +57,6 @@ export default function Home() {
                     </div>
                 </section>
             </main>
-
+        </div>
     )
 }

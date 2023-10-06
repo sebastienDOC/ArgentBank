@@ -1,9 +1,23 @@
-export default function User() {
-    return(
+import Header from "../components/Header";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserProfile } from '../redux/authSlice'
+import { useEffect } from "react";
 
+export default function User() {
+    let token = localStorage.getItem('token')
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getUserProfile(token))
+    },[])
+
+    let username = useSelector((state) => state.user?.user?.body?.userName)
+
+    return(
+        <div className='body-2'>
+            <Header />
             <main className="main bg-dark">
                 <div className="header">
-                    <h1>Welcome back<br />Tony Jarvis!</h1>
+                    <h1>Welcome back <br /> {username} !</h1>
                     <button className="edit-button">Edit Name</button>
                 </div>
                 <h2 className="sr-only">Accounts</h2>
@@ -38,6 +52,6 @@ export default function User() {
                     </div>
                 </section>
             </main>
-
+        </div>
     )
 }

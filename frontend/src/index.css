@@ -64,6 +64,11 @@ html {
     margin-right: 0.5rem;
   }
 
+  .row {
+    display: flex;
+    gap: 20px;
+  }
+
   a {
     text-decoration: none;
     color: #2c3e50
@@ -195,6 +200,14 @@ html {
     font-size: 5rem;
   }
   
+  .alert-error {
+    font-weight: bold;
+    margin-top: 15px;
+    padding: 5px;
+    background-color: red;
+    color: white;
+  }
+
   .input-remember {
     display: flex;
   }
