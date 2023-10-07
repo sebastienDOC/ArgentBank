@@ -100,6 +100,15 @@ html {
     height: 300px;
     position: relative;
   }
+
+  .error {
+    padding-top: 25px;
+  }
+
+  .error-size {
+    font-size: 50px;
+    font-weight: bold;
+  }
   
   .hero-content {
     position: relative;
@@ -264,6 +273,10 @@ html {
     font-size: 2.5rem;
     font-weight: bold;
   }
+
+  .negative {
+    color: red;
+  }
   
   .account-amount-description {
     margin: 0;
@@ -317,6 +330,16 @@ html {
   
     .transaction-button {
       width: 200px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .body-2 {
+      min-height: 90vh;
+    }
+    .error-size {
+      font-size: 25px;
+      font-weight: bold;
     }
   }
   

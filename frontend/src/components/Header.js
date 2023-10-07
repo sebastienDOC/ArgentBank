@@ -20,7 +20,9 @@ export default function Header() {
     const dispatch = useDispatch()
 
     function handleLogout() {
-        localStorage.clear()
+        localStorage.removeItem('user')
+        localStorage.removeItem('token')
+        localStorage.removeItem('userName')
         dispatch(revertAll())
         setUser(null)
         navigate('/')

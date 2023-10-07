@@ -5,12 +5,11 @@ export default function Error() {
     return (
         <div className='body-2'>
             <Header />
-            <div className="hero">
-                <div className="hero-content">
-                    <h1>ERROR 404</h1>
-                    <h2>Oups, la page que vous recherchez n'existe pas !</h2>
-                    <Link to='/'><p>Retour à la page d'acceuil</p></Link>
-                </div>
+            <div className="hero"></div>
+            <div className="error">
+                <p className='error-size'>ERROR 404</p>
+                <p className='error-size'>Oups, la page que vous recherchez n'existe pas !</p>
+                <Link to='/'><p>Retour à la page d'acceuil</p></Link>
             </div>
         </div>
     )

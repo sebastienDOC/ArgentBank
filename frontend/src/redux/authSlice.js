@@ -3,12 +3,9 @@ import axios from "axios";
 
 const initialState = {
     user: null,
-    token: '',
     loading: false,
-    error: null
+    error: null,
 }
-
-export const revertAll = createAction('REVERT_ALL')
 
 export const signUpUser = createAsyncThunk('user/signUpUser', async (userInfos) => {
     const request = await axios.post('http://localhost:3001/api/v1/user/signup', userInfos)
@@ -27,13 +24,24 @@ export const signInUser = createAsyncThunk('user/signInUser', async (userSignIn)
 
 export const getUserProfile = createAsyncThunk('user/getUserProfile', async (token) => {
     const response = await fetch('http://localhost:3001/api/v1/user/profile', {
-        method: 'post',
+        method: 'POST',
         headers:{
             "Authorization":  `Bearer ${token}`
         }
     })
     return await response.json()
 })
+
+export const changeUserName = createAsyncThunk('user/changeUserName', async (newUsername) => {
+    const request = await axios.put('http://localhost:3001/api/v1/user/profile', 
+    newUsername,
+    { headers: { "Authorization":  `Bearer ${localStorage.getItem('token')}` } } 
+    )
+    const response = await request.data
+    return response
+})
+
+export const revertAll = createAction('REVERT_ALL')
 
 const authSlice = createSlice({
     name: 'user',
@@ -48,19 +56,25 @@ const authSlice = createSlice({
             state.loading = false
             state.user = action.payload
             state.error = null
-            state.token = localStorage.getItem('token')
         })
         .addCase(getUserProfile.rejected, (state, action) => {
             state.loading = false
             state.error = action.error.message
         })
+        // CHANGE USERNAME
+        .addCase(changeUserName.pending, (state) => {
+            state.loading = true
+        })
+        .addCase(changeUserName.fulfilled, (state, action) => {
+            state.loading = false
+            state.user = action.payload
+        })
         // SIGN IN
         .addCase(signInUser.pending, (state) => {
             state.loading = true
         })
-        .addCase(signInUser.fulfilled, (state, action) => {
+        .addCase(signInUser.fulfilled, (state) => {
             state.loading = false
-            state.token = action.payload
         })
         .addCase(signInUser.rejected, (state, action) => {
             state.loading = false
