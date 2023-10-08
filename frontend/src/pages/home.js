@@ -1,10 +1,10 @@
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 import Feature from '../components/Feature/Feature';
 
 export default function Home() {
 
     return (
-        <div className='body-2'>
+        <div className='container'>
             <Header />
             <main>
                 <div className="hero">

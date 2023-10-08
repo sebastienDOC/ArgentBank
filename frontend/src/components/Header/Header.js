@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import logo from '../assets/Logo.png'
+import logo from '../../assets/argentBankLogo.webp'
 import {Link, useNavigate} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { revertAll } from '../redux/authSlice';
+import { revertAll } from '../../redux/authSlice';
 
 export function getUser() {
     let user = localStorage.getItem('user')
@@ -40,7 +40,7 @@ export default function Header() {
                     </Link>
                     <div className="main-nav-item" onClick={handleLogout}>
                         <i className="fa fa-user-circle"></i>
-                        Sign out
+                        Logout
                     </div>
                 </div>
             );

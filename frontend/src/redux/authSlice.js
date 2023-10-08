@@ -33,10 +33,7 @@ export const getUserProfile = createAsyncThunk('user/getUserProfile', async (tok
 })
 
 export const changeUserName = createAsyncThunk('user/changeUserName', async (newUsername) => {
-    const request = await axios.put('http://localhost:3001/api/v1/user/profile', 
-    newUsername,
-    { headers: { "Authorization":  `Bearer ${localStorage.getItem('token')}` } } 
-    )
+    const request = await axios.put('http://localhost:3001/api/v1/user/profile', newUsername, {headers: {"Authorization":  `Bearer ${localStorage.getItem('token')}`}})
     const response = await request.data
     return response
 })
@@ -81,7 +78,7 @@ const authSlice = createSlice({
             if (action.error.message === 'Request failed with status code 400') {
                 state.error = 'Access Denied ! Invalid email or password'
             } else {
-                state.error = action.error.message
+                state.error = console.log(action.error.message)
             }
         })
         // LOG OUT

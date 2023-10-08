@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { signUpUser } from "../redux/authSlice"
 import { useNavigate } from "react-router-dom"
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 
 export default function SignUp() {
     const [lastName, setLastName] = useState('')
@@ -13,6 +13,14 @@ export default function SignUp() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    function resetFields() {
+        setLastName('')
+        setFirstName('')
+        setUserName('')
+        setEmail('')
+        setPassword('')
+    }
 
     function handleSignUp(event) {
         event.preventDefault()
@@ -25,30 +33,22 @@ export default function SignUp() {
         }
         dispatch(signUpUser(userInfos)).then((result) => {
             if (result.payload) {
-                setEmail('')
-                setPassword('')
-                setLastName('')
-                setFirstName('')
-                setUserName('')
+                resetFields()
                 navigate('/login')
             } else {
-                setEmail('')
-                setPassword('')
-                setLastName('')
-                setFirstName('')
-                setUserName('')
+                resetFields()
             }
           })
     }
 
     return (
-        <div className='body-2'>
+        <div className='container'>
             <Header />
             <main className="main bg-dark">
                 <section className="sign-in-content">
                     <i className="fa fa-user-circle sign-in-icon"></i>
                     <h1>Sign Up</h1>
-                    <form>
+                    <form onSubmit={handleSignUp} >
                         <div className="input-wrapper">
                             <label htmlFor="email">E-mail</label>
                             <input 
@@ -65,6 +65,7 @@ export default function SignUp() {
                                 id="password" 
                                 value={password}
                                 onChange={(event) => setPassword(event.target.value)}
+                                autoComplete="off"
                                 required />
                         </div>
                         <div className="input-wrapper">
@@ -94,9 +95,7 @@ export default function SignUp() {
                                 onChange={(event) => setUserName(event.target.value)}
                                 required />
                         </div>
-                        <button className="sign-in-button" onClick={handleSignUp}>
-                            Sign Up
-                        </button>
+                        <input type='submit' value='Sign Up' className="sign-in-button"></input>
                     </form>
                 </section>
             </main>

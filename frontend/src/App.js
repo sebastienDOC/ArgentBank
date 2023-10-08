@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
-import Footer from "./components/Footer";
-import Router from './components/Router';
+import Footer from "./components/Footer/Footer";
+import Router from './components/Router/Router';
 
 function App() {
   return (

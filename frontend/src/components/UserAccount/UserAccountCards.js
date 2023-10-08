@@ -1,23 +1,22 @@
 import { useEffect, useState } from "react";
+import CollapseTransactions from "../CollapseTransactions/CollapseTransactions";
 
-export default function UserAccountCards({ id, title }) {
-    const [num, setNum] = useState(0); 
-    const randomNumberInRange = (min, max) => { 
-        return Math.floor(Math.random() * (max - min + 1)) * (Math.round(Math.random()) ? 1 : -1);
-    }; 
-    useEffect(() => {
-          setNum(randomNumberInRange(10, 10000));
-    }, []);
+export default function UserAccountCards({ id, title, amount }) {
+    const [isOpen, setIsOpen] = useState(false)
+    const toggle = () => {
+        setIsOpen(!isOpen);
+    };
 
 	return (
 		<section className="account" key={id}>
             <div className="account-content-wrapper">
                 <h3 className="account-title">{title}</h3>
-                <p className={num < 0 ? "account-amount negative" : "account-amount"}>${num}</p>
-                <p className="account-amount-description">Available Balance</p>
+                <p className="account-amount">${amount}</p>
+                <p className="account-amount-description" >Available Balance</p>
+                {isOpen && <CollapseTransactions toggle={toggle} /> }
             </div>
             <div className="account-content-wrapper cta">
-                <button className="transaction-button">View transactions</button>
+                <button className="transaction-button" onClick={toggle}>View transactions</button>
             </div>
         </section>
 	)

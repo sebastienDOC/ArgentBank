@@ -1,9 +1,9 @@
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import UserAccount from "../components/UserAccount/UserAccount";
 
 export default function User() {
     return(
-        <div className='body-2'>
+        <div className='container'>
             <Header />
             <UserAccount />
         </div>

@@ -3,21 +3,21 @@
         "features" : [
             {
                 "id" : "1",
-                "cover" : "/icon-chat.png",
+                "cover" : "/icon-chat.webp",
                 "alt" : "Chat Icon",
                 "title" : "You are our #1 priority",
                 "description" : "Need to talk to a representative? You can get in touch through our 24/7 chat or through a phone call in less than 5 minutes."
             },
             {
                 "id" : "2",
-                "cover" : "/icon-money.png",
+                "cover" : "/icon-money.webp",
                 "alt" : "Money Icon",
                 "title" : "More savings means higher rates",
                 "description" : "The more you save with us, the higher your interest rate will be!"
             },
             {
                 "id" : "3",
-                "cover" : "/icon-security.png",
+                "cover" : "/icon-security.webp",
                 "alt" : "Security Icon",
                 "title" : "Security you can trust",
                 "description" : "We use top of the line encryption to make sure your data and money is always safe."
@@ -26,16 +26,47 @@
 
         "account" : [
             {
-                "id" : "4",
+                "id" : "10",
+                "amount": "2,082.79",
                 "title" : "Argent Bank Checking"
             },
             {
-                "id" : "5",
+                "id" : "11",
+                "amount": "10,928.42",
                 "title" : "Argent Bank Savings"
             },
             {
-                "id" : "6",
+                "id" : "12",
+                "amount": "184.30",
                 "title" : "Argent Bank Credit Card"
+            }
+        ],
+
+        "transactions" : [
+            {
+                "id" : "100",
+                "title" : "Refuelling the ship",
+                "amount": " -800.69"
+            },
+            {
+                "id" : "101",
+                "title" : "Research for a new technology",
+                "amount": " -16453.85"
+            },
+            {
+                "id" : "102",
+                "title" : "Hulk's debt",
+                "amount": " +2,082.79"
+            },
+            {
+                "id" : "103",
+                "title" : "Loki's been here",
+                "amount": " -1"
+            },
+            {
+                "id" : "104",
+                "title" : "Won bet against Thor",
+                "amount": " +50"
             }
         ]
     }

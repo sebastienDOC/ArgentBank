@@ -1,9 +1,9 @@
 import {Link} from 'react-router-dom';
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 
 export default function Error() {
     return (
-        <div className='body-2'>
+        <div className='container'>
             <Header />
             <div className="hero"></div>
             <div className="error">

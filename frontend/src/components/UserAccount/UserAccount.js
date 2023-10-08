@@ -3,7 +3,7 @@ import UserAccountCards from './UserAccountCards'
 import { useDispatch, useSelector } from "react-redux";
 import { getUserProfile } from '../../redux/authSlice'
 import { useEffect, useState } from "react";
-import Modal from '../Modal/Modal';
+import Modal from '../ModalChangeName/ModalChangeName';
 
 export default function UserAccount() {
 
@@ -30,8 +30,9 @@ export default function UserAccount() {
             <h2 className="sr-only">Accounts</h2>
             {data[0].account.map((data) => 
                 <UserAccountCards 
-                        title={data.title}
-                        key={data.id}
+                    title={data.title}
+                    amount={data.amount}
+                    key={data.id}
                 />
             )}
         </main>
