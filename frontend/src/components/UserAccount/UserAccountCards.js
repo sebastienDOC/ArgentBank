@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CollapseTransactions from "../CollapseTransactions/CollapseTransactions";
 
 export default function UserAccountCards({ id, title, amount }) {

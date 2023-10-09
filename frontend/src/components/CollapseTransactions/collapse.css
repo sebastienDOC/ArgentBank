@@ -1,44 +1,77 @@
-h3.trans-name {
-    color: white;
+h2 {
+    text-align: center;
+    color: #42b983;
+    width: 80%;
+}
+
+p.trans-name {
+    color: #2c3e50;
     margin: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0 0 10px 0;
 }
 
 p.trans-amount{
-    color: white;
+    color: #2c3e50;
     margin: 0;
-    padding: 10px 10px 0;
+    text-align: end;
 }
 
-.ctn-trans {
-    width: 75%;
+p.trans-date{
+    color: #42b983;
+    margin: 0;
 }
 
-.ctn-pos {
-    background-color: #00bc77;
-    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
-    padding: 10px;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 5px;
+p.positive {
+    color: #42b983;
 }
 
-.ctn-neg {
-    background-color: red;
-    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+.ctn {
     padding: 10px;
     border-radius: 10px;
     overflow: hidden;
     margin: 5px 0;
 }
 
+.border {
+    padding-bottom: 10px;
+    border-bottom: solid #42b983 2px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 80%;
+}
+
+.fa-solid {
+    color: #2c3e50;
+    margin: 0 0 0 8px;
+    z-index: -100;
+    cursor: pointer;
+}
+
+.transition {
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
 @media (max-width: 720px) {
     h3.trans-name {
         font-size: 16px;
     }
-    .ctn-trans {
+    .ctn {
         width: 100%;
     }
     p.trans-amount{
         font-size: 14px;
+    }
+    .border {
+        display: flex;
+        flex-direction: column;
+    }
+    p.trans-name {
+        padding: 10px 0;
+    }
+    p.trans-amount{
+        padding: 5px 0;
     }
   }

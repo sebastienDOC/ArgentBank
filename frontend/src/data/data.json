@@ -46,27 +46,37 @@
             {
                 "id" : "100",
                 "title" : "Refuelling the ship",
-                "amount": " -800.69"
+                "amount": " -800.69",
+                "type": "Payment by card",
+                "date": " October 09 2023"
             },
             {
                 "id" : "101",
                 "title" : "Research for a new technology",
-                "amount": " -16453.85"
+                "amount": " -16453.85",
+                "type": "direct debit",
+                "date": "October 08 2023"
             },
             {
                 "id" : "102",
                 "title" : "Hulk's debt",
-                "amount": " +2,082.79"
+                "amount": " +2,082.79",
+                "type": "transfer in your favour",
+                "date": "October 06 2023"
             },
             {
                 "id" : "103",
                 "title" : "Loki's been here",
-                "amount": " -1"
+                "amount": " -1",
+                "type": "direct debit",
+                "date": "October 06 2023"
             },
             {
                 "id" : "104",
                 "title" : "Won bet against Thor",
-                "amount": " +50"
+                "amount": " +50",
+                "type": "cash deposit",
+                "date": "October 01 2023"
             }
         ]
     }

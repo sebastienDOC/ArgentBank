@@ -12,6 +12,10 @@ html {
     flex-direction: column;
     min-height: 100vh;
   }
+
+  button, input.sign-in-button {
+    cursor: pointer;
+  }
   
   .container{
     margin: 0;
@@ -293,7 +297,6 @@ html {
   .account-content-wrapper {
     width: 100%;
     flex: 1;
-    
   }
   
   .edit-button {
@@ -336,6 +339,9 @@ html {
   }
 
   @media (max-width: 720px) {
+    h1 {
+      font-size: 25px;
+    }
     .container{
       min-height: 90vh;
     }

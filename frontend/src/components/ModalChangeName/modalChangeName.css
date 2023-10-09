@@ -2,7 +2,7 @@
     background-color: rgba(0, 0, 0, 0.2);
     width: 100vw;
     height: 100vh;
-    z-index: 0;
+    z-index: 100;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -19,7 +19,7 @@
   .modal {
     max-width: 500px;
     padding: 20px;
-    height: 40vh;
+    height: 250px;
     background: white;
     color: white;
     border-radius: 16px;
@@ -150,13 +150,5 @@
     .modal {
       max-height: 30vh;
       font-size: 14px;
-    }
-
-    .cancelBtn {
-      padding: 5px 15px;
-    }
-
-    .deleteBtn {
-      padding: 5px 15px;
     }
   }

@@ -31,8 +31,8 @@ export default function SignUp() {
             firstName,
             userName
         }
-        dispatch(signUpUser(userInfos)).then((result) => {
-            if (result.payload) {
+        dispatch(signUpUser(userInfos)).then((action) => {
+            if (action.payload) {
                 resetFields()
                 navigate('/login')
             } else {

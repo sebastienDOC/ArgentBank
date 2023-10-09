@@ -30,9 +30,9 @@ export default function UserAccount() {
             <h2 className="sr-only">Accounts</h2>
             {data[0].account.map((data) => 
                 <UserAccountCards 
-                    title={data.title}
-                    amount={data.amount}
-                    key={data.id}
+                        title={data.title}
+                        amount={data.amount}
+                        key={data.id}
                 />
             )}
         </main>
