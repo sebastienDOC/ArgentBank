@@ -52,7 +52,6 @@
             },
             {
                 "id" : "101",
-                "title" : "Research for a new technology",
                 "amount": " -16453.85",
                 "type": "direct debit",
                 "date": "October 08 2023"
@@ -73,7 +72,6 @@
             },
             {
                 "id" : "104",
-                "title" : "Won bet against Thor",
                 "amount": " +50",
                 "type": "cash deposit",
                 "date": "October 01 2023"

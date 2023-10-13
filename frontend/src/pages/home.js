@@ -1,5 +1,6 @@
 import Header from '../components/Header/Header';
-import Feature from '../components/Feature/Feature';
+import FeatureCard from '../components/Feature/FeatureCards'
+import data from '../data/data.json'
 
 export default function Home() {
 
@@ -7,16 +8,27 @@ export default function Home() {
         <div className='container'>
             <Header />
             <main>
-                <div className="hero">
-                    <section className="hero-content">
+                <section className="hero">
+                    <div className="hero-content">
                         <h2 className="sr-only">Promoted Content</h2>
                         <p className="subtitle">No fees.</p>
                         <p className="subtitle">No minimum deposit.</p>
                         <p className="subtitle">High interest rates.</p>
                         <p className="text">Open a savings account with Argent Bank today!</p>
-                    </section>
-                </div>
-                <Feature /> 
+                    </div>
+                </section>
+                <section className="features">
+                    <h2 className="sr-only">Features</h2>
+                    {data[0].features.map((feature) => 
+                        <FeatureCard 
+                                cover={feature.cover}
+                                alt={feature.alt}
+                                title={feature.title}
+                                description={feature.description}
+                                key={feature.id}
+                        />
+                    )}
+                </section>
             </main>
         </div>
     )

@@ -8,7 +8,7 @@ export default function UserAccountContent({ id, title, amount }) {
     };
 
 	return (
-		<section className="account" key={id}>
+		<div className="account" key={id}>
             <div className="account-content-wrapper">
                 <h3 className="account-title">{title}</h3>
                 <p className="account-amount">${amount}</p>
@@ -18,6 +18,6 @@ export default function UserAccountContent({ id, title, amount }) {
             <div className="account-content-wrapper cta">
                 <button className="transaction-button" onClick={toggle}>View transactions</button>
             </div>
-        </section>
+        </div>
 	)
 }

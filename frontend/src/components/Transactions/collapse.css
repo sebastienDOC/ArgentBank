@@ -34,6 +34,10 @@ p.positive {
     margin: 5px 0;
 }
 
+.invisible {
+    visibility: hidden;
+}
+
 .border {
     padding-bottom: 10px;
     border-bottom: solid #42b983 2px;

@@ -4,7 +4,7 @@ import './collapse.css'
 
 export default function CollapseTransactions(){
     return(
-        <section className='ctn-trans'>
+        <div className='ctn-trans'>
             <h2>TRANSACTIONS</h2>
             {data[0].transactions.map((data) => 
                 <CollapseTransactionsContent
@@ -15,6 +15,6 @@ export default function CollapseTransactions(){
                     date={data.date}
                 />
             )}
-        </section>
+        </div>
     )
 }
