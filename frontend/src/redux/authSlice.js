@@ -45,6 +45,32 @@ const authSlice = createSlice({
     initialState,
     extraReducers: (builder) => {
         builder
+        // SIGN UP 
+        .addCase(signUpUser.pending, (state) => {
+            state.loading = true
+        })
+        .addCase(signUpUser.fulfilled, (state) => {
+            state.loading = false
+        })
+        .addCase(signUpUser.rejected, (state, action) => {
+            state.loading = false
+            state.error = action.error.message
+        })
+        // SIGN IN
+        .addCase(signInUser.pending, (state) => {
+            state.loading = true
+        })
+        .addCase(signInUser.fulfilled, (state) => {
+            state.loading = false
+        })
+        .addCase(signInUser.rejected, (state, action) => {
+            state.loading = false
+            if (action.error.message === 'Request failed with status code 400') {
+                state.error = 'Access Denied ! Invalid email or password'
+            } else {
+                state.error = console.log(action.error.message)
+            }
+        })
         // GET PROFILE
         .addCase(getUserProfile.pending, (state) => {
             state.loading = true
@@ -66,20 +92,9 @@ const authSlice = createSlice({
             state.loading = false
             state.user = action.payload
         })
-        // SIGN IN
-        .addCase(signInUser.pending, (state) => {
-            state.loading = true
-        })
-        .addCase(signInUser.fulfilled, (state) => {
+        .addCase(changeUserName.rejected, (state, action) => {
             state.loading = false
-        })
-        .addCase(signInUser.rejected, (state, action) => {
-            state.loading = false
-            if (action.error.message === 'Request failed with status code 400') {
-                state.error = 'Access Denied ! Invalid email or password'
-            } else {
-                state.error = console.log(action.error.message)
-            }
+            state.error = action.error.message
         })
         // LOG OUT
         .addCase(revertAll, () => initialState)

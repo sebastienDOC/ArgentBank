@@ -9,7 +9,7 @@ export default function Modal({setIsOpen}) {
 
       const [newUsername, setUsername] = useState({"userName": ''});
       function handleInput(e) {
-            setUsername({...newUsername, [e.target.name]: e.target.value})
+            setUsername({userName: e.target.value})
       }
 
       function handleSubmit(e) {

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import CollapseTransactions from "../CollapseTransactions/CollapseTransactions";
+import CollapseTransactions from "../Transactions/CollapseTransactions";
 
-export default function UserAccountCards({ id, title, amount }) {
+export default function UserAccountContent({ id, title, amount }) {
     const [isOpen, setIsOpen] = useState(false)
     const toggle = () => {
         setIsOpen(!isOpen);

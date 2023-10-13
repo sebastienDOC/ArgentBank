@@ -1,12 +1,11 @@
 import data from '../../data/data.json'
-import UserAccountCards from './UserAccountCards'
+import UserAccountContent from './UserAccountContent'
 import { useDispatch, useSelector } from "react-redux";
 import { getUserProfile } from '../../redux/authSlice'
 import { useEffect, useState } from "react";
 import Modal from '../ModalChangeName/ModalChangeName';
 
 export default function UserAccount() {
-
     let token = localStorage.getItem('token')
     const dispatch = useDispatch()
     useEffect(() => {
@@ -29,7 +28,7 @@ export default function UserAccount() {
             </div>
             <h2 className="sr-only">Accounts</h2>
             {data[0].account.map((data) => 
-                <UserAccountCards 
+                <UserAccountContent 
                         title={data.title}
                         amount={data.amount}
                         key={data.id}
