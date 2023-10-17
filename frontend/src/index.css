@@ -58,13 +58,17 @@ html {
   .main-nav a.router-link-exact-active {
     color: #42b983;
   }
-  
-  .fa {
-    margin-right: 5px;
-  }
 
   .main-nav-item {
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #42b983;
+  }
+  .main-nav-item p.main-nav-item-txt {
+    margin-left: 5px;
   }
 
   .row {
@@ -80,9 +84,14 @@ html {
   a:focus {
     color: #42b983;
   }
-  
-  .main-nav-item:hover {
-    text-decoration: underline;
+
+  .fa:hover {
+    text-decoration: none;
+  }
+
+  .main-nav-item i{
+    color: #42b983;
+    margin-left: 5px;
   }
   
   .main-nav-logo {
@@ -135,7 +144,7 @@ html {
     margin-bottom: 0;
     font-size: 0.9rem;
   }
-  
+
   @media (min-width: 920px) {
     .hero {
       height: 400px;
@@ -323,24 +332,24 @@ html {
     background-color: #00bc77;
     color: #fff;
   }
-  
-  @media (min-width: 720px) {
+  @media (min-width: 1000px) {
     .account {
       flex-direction: row;
     }
-  
     .account-content-wrapper.cta {
       flex: 0;
     }
-  
     .transaction-button {
       width: 200px;
     }
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 740px) {
     h1 {
       font-size: 25px;
+    }
+    p {
+      font-size: 13px;
     }
     .container{
       min-height: 90vh;
@@ -354,6 +363,9 @@ html {
     }
     .main-nav {
       padding: 5px 10px;
+    }
+    .main-nav-item p {
+      display: none;
     }
   }
   

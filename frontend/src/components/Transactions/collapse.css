@@ -6,56 +6,148 @@ h2 {
 
 p.trans-name {
     color: #2c3e50;
-    margin: 0;
+    margin: 0 10px 0 8px ;
     text-transform: uppercase;
     font-weight: bold;
-    padding: 0 0 10px 0;
+    display: flex;
+    align-items: center;
 }
 
 p.trans-amount{
     color: #2c3e50;
     margin: 0;
-    text-align: end;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 
 p.trans-date{
     color: #42b983;
     margin: 0;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 
 p.positive {
     color: #42b983;
 }
 
+.chevron {
+    display: flex;
+    align-items: center;
+}
+
 .ctn {
     padding: 10px;
     border-radius: 10px;
-    overflow: hidden;
-    margin: 5px 0;
+    margin: 0;
+}
+.ctn-trans {
+    max-width: 90%;
+    margin: 20px auto;
+}
+.ctn-txt{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    padding: 10px ;
+    font-weight: bold;
+}
+.ctn-txt p{
+    margin: 0;
+    padding: 0 0 10px 20px;
+    color: #42b983;
+    border-bottom: solid #42b983 2px;
+}
+p.ctn-trans-txt{
+    padding: 0 30px 0 0;
+    text-align: end;
 }
 
 .invisible {
-    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
 }
 
-.border {
-    padding-bottom: 10px;
+.bank-img {
+    height: 20px;
+    margin-right: 10px;
+}
+
+.ctn-content {
+    padding: 10px 0;
     border-bottom: solid #42b983 2px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 80%;
+    grid-template-columns: 1fr 3fr;
+}
+.border {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 30px;
 }
 
 .fa-solid {
-    color: #2c3e50;
+    color: #42b983;
     margin: 0 0 0 8px;
-    z-index: -100;
     cursor: pointer;
 }
 
 .transition {
     transition: all 0.5s ease;
-    overflow: hidden;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    font-weight: bold;
+}
+.transition p{
+    margin: 5px 10px 5px 0;
+}
+.transition input{
+    margin: 0 10px 0 0;
+    padding: 0 5px;
+    color: #42b983;
+}
+.transition button {
+    background-color: #42b983;
+    color: white;
+    border: none;
+    border-color: #00bc77;
+    font-weight: bold;
+}
+
+.end {
+    font-weight: 100;
+}
+
+select {
+    margin: 0 10px 0 0;
+    padding: 0 5px;
+    border: none;
+    color: #42b983;
+    cursor: pointer;
+}
+
+p {
+    margin: 10px;
+}
+
+.more {
+    display: none;
+    margin-bottom: 10px;
+}
+
+p.letter {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    p.ctn-trans-txt {
+        padding-right: 20px;
+    }
+    p {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 720px) {
@@ -65,17 +157,73 @@ p.positive {
     .ctn {
         width: 100%;
     }
+    .ctn-txt {
+        width: 100%;
+    }
     p.trans-amount{
         font-size: 14px;
     }
-    .border {
+}
+
+@media (max-width: 550px) {
+    h3.account-title  {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+    }
+    p.left {
+        text-align: start;
+    }
+    p.letter {
+        display: block;
+    }
+    p.number {
+        display: none;
+    }
+    p.trans-date {
+        text-align: left;
+        padding-bottom: 5px;
+    }
+    p.trans-name {
+        margin: 0 0 10px;
+        text-align: start;
+    }
+    p.trans-amount {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .transition {
+        height: 50px;
+    }
+    .ctn{
         display: flex;
         flex-direction: column;
     }
-    p.trans-name {
-        padding: 10px 0;
+    .ctn-txt {
+        display: none;
     }
-    p.trans-amount{
-        padding: 5px 0;
+    .ctn-content {
+        align-items: center;
+    }
+    .chevron {
+        display: none;
+    }
+    .end {
+        display: flex;
+        align-self: center;
+        justify-content: end;
+    }
+    .border {
+        display: flex;
+        flex-direction: column; 
+    }
+    .more {
+        display: block;
+        font-size: 10px;
+        text-decoration: underline;
+        color: #42b983;
+        cursor: pointer;
+        text-align: end;
     }
   }

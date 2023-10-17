@@ -83,7 +83,7 @@ paths:
         - User Module
       summary: User Profile API
       description: API for updating a user profile
-      parameters:
+      parameters: 
         - in: body
           name: body
           description: Update user profile attributes
@@ -97,6 +97,111 @@ paths:
           description: User profile retrieved successully
           schema:
             $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+  /transactions:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Return all transactions 
+      description: This can only be done by the logged in user.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Transactions retrieved successully
+          schema:
+            $ref: '#/definitions/TransactionResponse'
+        '400':
+          description: Invalid Fields 
+        '500':
+          description: Internal Server Error
+  /transaction/details/{transactionId}:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Return the transaction informations by ID
+      description: This can only be done by the logged in user.
+      parameters: 
+        - name: "transactionId"
+          in: path
+          description: ID of transaction to return
+          required: true
+          type: integer
+          format: int64
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Transaction information retrieved successully
+          schema:
+            $ref: '#/definitions/TransactionResponse'
+        '400':
+          description: Invalid Fields 
+        '500':
+          description: Internal Server Error        
+  /transaction/editCategory/{transactionId}: 
+    put:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Edit transaction category by ID
+      description: This can only be done by the logged in user.
+      parameters:
+        - name: "transactionId"
+          in: path
+          description: ID of transaction to edit
+          required: true
+          type: integer
+          format: int64
+        - name: "category"
+          in: body
+          description: category of transaction to edit
+          required: true
+          schema:
+            $ref: '#/definitions/TransactionCategory'
+      responses:
+        '200':
+          description: Account transaction edited successully
+          schema:
+            $ref: '#/definitions/TransactionResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+  /transaction/editDescription/{transactionId}: 
+    put:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Edit transaction description by ID
+      description: This can only be done by the logged in user.
+      parameters:
+        - name: "transactionId"
+          in: path
+          description: ID of transaction to edit
+          required: true
+          type: integer
+          format: int64
+        - name: "description"
+          in: body
+          description: description of transaction to edit
+          required: true
+          schema:
+            $ref: '#/definitions/TransactionDescription'
+      responses:
+        '200':
+          description: Account transaction edited successully
+          schema:
+            $ref: '#/definitions/TransactionResponse'
         '400':
           description: Invalid Fields
         '500':
@@ -156,3 +261,47 @@ definitions:
     properties:
       userName:
         type: string
+  TransactionResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+            description: Transaction ID
+          title:
+            type: string
+            description: Transaction title
+          description: 
+            type: string
+            description: Transaction description
+          amount:
+            type: string
+            description: Transaction amount
+          type :
+            type: string
+            description: Transaction type
+          date:
+            type: string
+            description: Transaction date
+          category:
+            type: string
+            description: Transaction category
+  TransactionCategory:
+    type: object
+    properties:
+      category:
+        type: string
+        description: Transaction category
+  TransactionDescription:
+    type: object
+    properties:
+      description:
+        type: string
+        description: Transaction description

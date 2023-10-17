@@ -18,6 +18,7 @@ export default function Header() {
     const [user, setUser] = useState(getUser())
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const userName = localStorage.getItem('userName')
 
     function handleLogout() {
         localStorage.removeItem('user')
@@ -32,15 +33,15 @@ export default function Header() {
         if (user) {
             return (
                 <div className='row'>
-                    <Link to='/user'>
-                        <div className="main-nav-item">
-                            <i className="fa fa-user-circle"></i>
-                            Profile
-                        </div>
+                    <Link to='/account' className='main-nav-item'>
+                        <p>{userName}</p>
+                        <i className="fa fa-user-circle fa-2x"></i>
                     </Link>
+                    <div className="main-nav-item">
+                        <i className="fa fa-solid fa-gear fa-2x"></i>
+                    </div>
                     <div className="main-nav-item" onClick={handleLogout}>
-                        <i className="fa fa-user-circle"></i>
-                        Logout
+                        <i className="fa fa-solid fa-power-off fa-2x"></i>
                     </div>
                 </div>
             );
@@ -48,8 +49,8 @@ export default function Header() {
             return (
                 <Link to='/login'>
                     <div className="main-nav-item">
-                        <i className="fa fa-user-circle"></i>
-                        Sign In
+                        <i className="fa fa-user-circle fa-2x"></i>
+                        <p className='main-nav-item-txt'>Sign In</p>
                     </div>
                 </Link>
             );

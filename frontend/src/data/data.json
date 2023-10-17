@@ -45,37 +45,71 @@
         "transactions" : [
             {
                 "id" : "100",
-                "title" : "Refuelling the ship",
+                "title": "Lorem ipsum dolor sit amet",
+                "description" : "Refuelling the ship",
                 "amount": " -800.69",
                 "type": "Payment by card",
-                "date": " October 09 2023"
+                "img": "/card.webp",
+                "dateNumber": "12/10/2023",
+                "dateLetter": "October 12 2023",
+                "category": "Work"
             },
             {
                 "id" : "101",
+                "title": "Lorem ipsum dolor sit amet",
+                "description" : "New technologies",
                 "amount": " -16453.85",
-                "type": "direct debit",
-                "date": "October 08 2023"
+                "type": "Direct debit",
+                "img": "/prel.webp",
+                "dateNumber": "10/10/2023",
+                "dateLetter": "October 10 2023",
+                "category": "Work"
             },
             {
                 "id" : "102",
-                "title" : "Hulk's debt",
+                "title": "Lorem ipsum dolor sit amet",
+                "description" : "Hulk's debt",
                 "amount": " +2,082.79",
-                "type": "transfer in your favour",
-                "date": "October 06 2023"
+                "type": "Transfer in your favour",
+                "img": "/virement.webp",
+                "dateNumber": "10/10/2023",
+                "dateLetter": "October 10 2023",
+                "category": "Friends"
             },
             {
                 "id" : "103",
-                "title" : "Loki's been here",
+                "title": "Lorem ipsum dolor sit amet",
+                "description" : "Loki's been here",
                 "amount": " -1",
-                "type": "direct debit",
-                "date": "October 06 2023"
+                "type": "Transfer",
+                "img": "/virement.webp",
+                "dateNumber": "06/10/2023",
+                "dateLetter": "October 06 2023",
+                "category": "Friends"
             },
             {
                 "id" : "104",
+                "title": "Lorem ipsum dolor sit amet",
+                "description" : "Bet with Thor",
                 "amount": " +50",
-                "type": "cash deposit",
-                "date": "October 01 2023"
+                "type": "Cash deposit",
+                "img": "/money.webp",
+                "dateNumber": "04/10/2023",
+                "dateLetter": "October 04 2023",
+                "category": "Friends"
             }
+        ],
+
+        "categories": [
+            "Food",
+            "Subscriptions",
+            "Work",
+            "Shopping",
+            "Transport",
+            "Taxes",
+            "Health",
+            "Leisure",
+            "Various"
         ]
     }
 ]

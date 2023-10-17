@@ -34,7 +34,9 @@ export default function Modal({setIsOpen}) {
                                                       <div className='modalContent'>
                                                             Current Username 
                                                       </div>
-                                                      <div className='modalContentDesc'>{username}</div>
+                                                      <div className='modalContentDesc'>
+                                                            {username}
+                                                      </div>
                                                       <div className='modalContent input-wrapper'>
                                                             New Username 
                                                       </div>

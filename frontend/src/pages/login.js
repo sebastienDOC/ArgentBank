@@ -23,7 +23,7 @@ export default function SignIn() {
       if (result.payload) {
         setEmail('')
         setPassword('')
-        navigate('/user')
+        navigate('/account')
       } else {
         setEmail('')
         setPassword('')

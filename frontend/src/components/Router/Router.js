@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from '../../pages/home';
 import Login from '../../pages/login';
 import SignUp from '../../pages/sign-up';
-import User from '../../pages/user';
+import Account from '../../pages/account';
 import Error from '../../pages/error';
 
 export default function Router() {
@@ -11,7 +11,7 @@ export default function Router() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/user" element={<User />} />
+            <Route path="/account" element={<Account />} />
             <Route path="*" element={<Error />} />
         </Routes>
     )

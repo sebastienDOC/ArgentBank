@@ -1,6 +1,6 @@
 export default function FeatureCard({cover, alt, title, description, id }) {
 	function getImgCover(img) {
-        var images = require("../../assets" + img);
+        let images = require("../../assets" + img);
         return images;
     }
 	return (
