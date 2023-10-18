@@ -21,9 +21,7 @@ export default function Header() {
     const userName = localStorage.getItem('userName')
 
     function handleLogout() {
-        localStorage.removeItem('user')
-        localStorage.removeItem('token')
-        localStorage.removeItem('userName')
+        localStorage.clear()
         dispatch(revertAll())
         setUser(null)
         navigate('/')

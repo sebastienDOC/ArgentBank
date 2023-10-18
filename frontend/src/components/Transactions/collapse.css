@@ -193,6 +193,9 @@ p.letter {
         font-size: 20px;
         margin-bottom: 5px;
     }
+    img.bank-img {
+        margin-right: 5px;
+    }
     .transition {
         height: 50px;
     }
@@ -225,5 +228,11 @@ p.letter {
         color: #42b983;
         cursor: pointer;
         text-align: end;
+    }
+    select {
+        width: 80%;
+    }
+    input {
+        width: 80%;
     }
   }

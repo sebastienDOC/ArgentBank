@@ -1,8 +1,19 @@
-import Header from '../components/Header/Header';
+import Header, { getUser } from '../components/Header/Header';
 import FeatureCard from '../components/Feature/FeatureCards'
 import data from '../data/data.json'
+import { useDispatch } from 'react-redux';
+import { getUserProfile } from "../redux/authSlice";
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+    const [user, setUser] = useState(getUser())
+    let token = localStorage.getItem('token')
+    const dispatch = useDispatch()
+    useEffect(() => {
+        if (user) {
+            dispatch(getUserProfile(token))
+        }
+    },[])
 
     return (
         <div className='container'>
@@ -21,11 +32,11 @@ export default function Home() {
                     <h2 className="sr-only">Features</h2>
                     {data[0].features.map((feature) => 
                         <FeatureCard 
-                                cover={feature.cover}
-                                alt={feature.alt}
-                                title={feature.title}
-                                description={feature.description}
-                                key={feature.id}
+                            cover={feature.cover}
+                            alt={feature.alt}
+                            title={feature.title}
+                            description={feature.description}
+                            key={feature.id}
                         />
                     )}
                 </section>

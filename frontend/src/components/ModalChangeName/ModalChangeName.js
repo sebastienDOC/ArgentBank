@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import './modalChangeName.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { changeUserName } from '../../redux/authSlice'
 
 export default function Modal({setIsOpen}) {
       let username = localStorage.getItem('userName')
+      let token = useSelector((state) => state.user?.token)
       const dispatch = useDispatch()
 
       const [newUsername, setUsername] = useState({"userName": ''});
@@ -14,7 +15,7 @@ export default function Modal({setIsOpen}) {
 
       function handleSubmit(e) {
             e.preventDefault()
-            dispatch((changeUserName(newUsername)))
+            dispatch((changeUserName(newUsername, token)))
             .then((action) => {
                   if(action.payload) {
                         setIsOpen(false)
@@ -40,7 +41,7 @@ export default function Modal({setIsOpen}) {
                                                       <div className='modalContent input-wrapper'>
                                                             New Username 
                                                       </div>
-                                                      <input className='modalContent' name='userName' type='text' onChange={handleInput} required></input>
+                                                      <input className='modalContent' name='userName' type='text' autoComplete="off" onChange={handleInput} required></input>
                                                       <div className='modalContent input-wrapper'>
                                                             Are you sure you want to change your username ?
                                                       </div>

@@ -28,17 +28,20 @@
             {
                 "id" : "10",
                 "amount": "2,082.79",
-                "title" : "Argent Bank Checking"
+                "title" : "Argent Bank Checking (x8349)",
+                "status": "Available Balance"
             },
             {
                 "id" : "11",
                 "amount": "10,928.42",
-                "title" : "Argent Bank Savings"
+                "title" : "Argent Bank Savings (x6712)",
+                "status": "Available Balance"
             },
             {
                 "id" : "12",
                 "amount": "184.30",
-                "title" : "Argent Bank Credit Card"
+                "title" : "Argent Bank Credit Card (x8349)",
+                "status": "Current Balance"
             }
         ],
 

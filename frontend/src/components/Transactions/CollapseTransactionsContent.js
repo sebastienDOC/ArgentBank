@@ -74,7 +74,7 @@ export default function CollapseTransactionsContent({id, title, description, cat
                 <div className={!open ? 'invisible' : 'transition end'} style={{maxHeight: open ? '50px' : '0px'}}>
                     {!showInput ? <p>{description}</p> : null}
                     {!showInput ? <i className="fa-solid fa-pen-to-square" onClick={onClickInput}></i> : null }
-                    {showInput ? <input type='text'></input> : null}
+                    {showInput ? <input type='text' name='description'></input> : null}
                     {showInput ? <button type='submit' onClick={onClickInput}>Submit</button> : null}
                 </div>
 

@@ -34,6 +34,8 @@ export default function User() {
                     <UserAccountContent 
                             title={data.title}
                             amount={data.amount}
+                            status={data.status}
+                            id={data.id}
                             key={data.id}
                     />
                 )}

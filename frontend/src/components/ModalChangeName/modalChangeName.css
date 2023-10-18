@@ -151,4 +151,8 @@
       max-height: 30vh;
       font-size: 14px;
     }
+    input.deleteBtn,
+    input.cancelBtn {
+      width: 40%;
+    }
   }

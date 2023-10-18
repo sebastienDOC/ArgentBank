@@ -49,8 +49,9 @@ const authSlice = createSlice({
         .addCase(signUpUser.pending, (state) => {
             state.loading = true
         })
-        .addCase(signUpUser.fulfilled, (state) => {
+        .addCase(signUpUser.fulfilled, (state, action) => {
             state.loading = false
+            state.user = action.payload
         })
         .addCase(signUpUser.rejected, (state, action) => {
             state.loading = false
@@ -60,8 +61,9 @@ const authSlice = createSlice({
         .addCase(signInUser.pending, (state) => {
             state.loading = true
         })
-        .addCase(signInUser.fulfilled, (state) => {
+        .addCase(signInUser.fulfilled, (state, action) => {
             state.loading = false
+            state.user = action.payload
         })
         .addCase(signInUser.rejected, (state, action) => {
             state.loading = false

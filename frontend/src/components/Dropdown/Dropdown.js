@@ -9,6 +9,7 @@ export default function Dropdown() {
         <div className="dropdown">
             <select 
                 value={category} 
+                name="category"
                 onChange={(event) => setCategory(event.target.value)}
             >
                 {data[0].categories.map((data, idx) => 
