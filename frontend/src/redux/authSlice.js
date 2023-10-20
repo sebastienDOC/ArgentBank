@@ -4,6 +4,7 @@ import axios from "axios";
 const initialState = {
     user: null,
     token: '',
+    isLogged: false, /* Ajout isLogged pour vérifier si utilisateur connecté ou non */
     loading: false,
     error: null,
 }
@@ -61,15 +62,18 @@ const authSlice = createSlice({
             state.error = action.error.message
         })
         // SIGN IN
-        .addCase(signInUser.pending, (state) => {
+        .addCase(signInUser.pending, (state, action) => {
             state.loading = true
+            state.user = action.payload
         })
         .addCase(signInUser.fulfilled, (state, action) => {
             state.loading = false
             state.token = action.payload.body.token
+            state.isLogged = true /* Changement de l'état de isLogged à la connexion utilisateur */
         })
         .addCase(signInUser.rejected, (state, action) => {
             state.loading = false
+            state.isLogged = false
             if (action.error.message === 'Request failed with status code 400') {
                 state.error = 'Access Denied ! Invalid email or password'
             } else {

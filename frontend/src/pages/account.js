@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserProfile } from "../redux/authSlice";
 import { useEffect, useState } from "react";
 import Modal from "../components/ModalChangeName/ModalChangeName";
+import { useNavigate } from "react-router-dom";
 
 export default function User() {
     let token = useSelector((state) => state.user?.token)
@@ -17,8 +18,17 @@ export default function User() {
     let username = useSelector((state) => state.user?.user?.body?.userName)
     let firstname = useSelector((state) => state.user?.user?.body?.firstName)
     let lastname = useSelector((state) => state.user?.user?.body?.lastName)
+    let isLogged = useSelector((state) => state.user?.isLogged)
 
     const [isOpen, setIsOpen] = useState(false);
+
+    // Redirection si user n'est pas connecté
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (!isLogged) {
+            navigate("/error");
+        }
+    }, [])
 
     return(
         <div className='container'>
@@ -39,7 +49,7 @@ export default function User() {
                             key={data.id}
                     />
                 )}
-            </main>
+            </main>       
         </div>
     )
 }
