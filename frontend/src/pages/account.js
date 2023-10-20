@@ -7,7 +7,8 @@ import { useEffect, useState } from "react";
 import Modal from "../components/ModalChangeName/ModalChangeName";
 
 export default function User() {
-    let token = localStorage.getItem('token')
+    let token = useSelector((state) => state.user?.token)
+
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getUserProfile(token))
@@ -16,7 +17,6 @@ export default function User() {
     let username = useSelector((state) => state.user?.user?.body?.userName)
     let firstname = useSelector((state) => state.user?.user?.body?.firstName)
     let lastname = useSelector((state) => state.user?.user?.body?.lastName)
-    let userName = localStorage.setItem('userName', username)
 
     const [isOpen, setIsOpen] = useState(false);
 

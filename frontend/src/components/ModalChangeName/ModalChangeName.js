@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeUserName } from '../../redux/authSlice'
 
 export default function Modal({setIsOpen}) {
-      let username = localStorage.getItem('userName')
+      const username = useSelector((state) => state.user?.user?.body?.userName)
       let token = useSelector((state) => state.user?.token)
       const dispatch = useDispatch()
 
@@ -15,7 +15,7 @@ export default function Modal({setIsOpen}) {
 
       function handleSubmit(e) {
             e.preventDefault()
-            dispatch((changeUserName(newUsername, token)))
+            dispatch((changeUserName({newUsername, token})))
             .then((action) => {
                   if(action.payload) {
                         setIsOpen(false)

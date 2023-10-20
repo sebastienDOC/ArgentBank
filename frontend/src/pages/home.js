@@ -1,13 +1,13 @@
 import Header, { getUser } from '../components/Header/Header';
 import FeatureCard from '../components/Feature/FeatureCards'
 import data from '../data/data.json'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getUserProfile } from "../redux/authSlice";
 import { useEffect, useState } from 'react';
 
 export default function Home() {
     const [user, setUser] = useState(getUser())
-    let token = localStorage.getItem('token')
+    let token = useSelector((state) => state.user?.token)
     const dispatch = useDispatch()
     useEffect(() => {
         if (user) {

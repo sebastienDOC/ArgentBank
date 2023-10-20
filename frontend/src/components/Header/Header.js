@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import logo from '../../assets/argentBankLogo.webp'
 import {Link, useNavigate} from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { revertAll } from '../../redux/authSlice';
 
 export function getUser() {
@@ -18,7 +18,7 @@ export default function Header() {
     const [user, setUser] = useState(getUser())
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const userName = localStorage.getItem('userName')
+    const userName = useSelector((state) => state.user?.user?.body?.userName)
 
     function handleLogout() {
         localStorage.clear()

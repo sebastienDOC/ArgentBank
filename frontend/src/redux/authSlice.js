@@ -3,6 +3,7 @@ import axios from "axios";
 
 const initialState = {
     user: null,
+    token: '',
     loading: false,
     error: null,
 }
@@ -16,10 +17,8 @@ export const signUpUser = createAsyncThunk('user/signUpUser', async (userInfos) 
 export const signInUser = createAsyncThunk('user/signInUser', async (userSignIn) => {
     const request = await axios.post('http://localhost:3001/api/v1/user/login', userSignIn)
     const response = await request.data
-    const token = await request.data.body.token
     localStorage.setItem('user', JSON.stringify(response))
-    localStorage.setItem('token', token)
-    return (response && token)
+    return response
 })
 
 export const getUserProfile = createAsyncThunk('user/getUserProfile', async (token) => {
@@ -32,8 +31,12 @@ export const getUserProfile = createAsyncThunk('user/getUserProfile', async (tok
     return await response.json()
 })
 
-export const changeUserName = createAsyncThunk('user/changeUserName', async (newUsername) => {
-    const request = await axios.put('http://localhost:3001/api/v1/user/profile', newUsername, {headers: {"Authorization":  `Bearer ${localStorage.getItem('token')}`}})
+export const changeUserName = createAsyncThunk('user/changeUserName', async ({newUsername, token}) => {
+    const request = await axios.put('http://localhost:3001/api/v1/user/profile', newUsername, {
+        headers: {
+            "Authorization":  `Bearer ${token}`
+        }
+    })
     const response = await request.data
     return response
 })
@@ -51,7 +54,7 @@ const authSlice = createSlice({
         })
         .addCase(signUpUser.fulfilled, (state, action) => {
             state.loading = false
-            state.user = action.payload
+            state.user = action.payload.message
         })
         .addCase(signUpUser.rejected, (state, action) => {
             state.loading = false
@@ -63,7 +66,7 @@ const authSlice = createSlice({
         })
         .addCase(signInUser.fulfilled, (state, action) => {
             state.loading = false
-            state.user = action.payload
+            state.token = action.payload.body.token
         })
         .addCase(signInUser.rejected, (state, action) => {
             state.loading = false
