@@ -12,7 +12,10 @@ export default function User() {
 
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(getUserProfile(token))
+        // Ajout condition isLogged = true pour demander le fetch
+        if (isLogged) {
+            dispatch(getUserProfile(token))
+        }
     },[])
 
     let username = useSelector((state) => state.user?.user?.body?.userName)
